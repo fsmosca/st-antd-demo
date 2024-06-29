@@ -5,8 +5,17 @@ from modules.google import Android, Finance
 from modules.samsung import Samsung
 
 
+st.set_page_config(
+    page_title="Antd components in Streamlit",
+    layout='centered',
+    page_icon='🤷'
+)
+
+
 def Home():
-    st.header('Home page')
+    st.header('Antd components in Streamlit')
+
+    st.markdown('''A streamlit application that uses antd components.''')
 
 
 with st.sidebar:
