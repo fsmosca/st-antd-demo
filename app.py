@@ -3,6 +3,7 @@ import streamlit_antd_components as sac
 from modules.apple import Apple
 from modules.google import Android, Finance
 from modules.samsung import Samsung
+from modules.account import Account
 
 
 st.set_page_config(
@@ -44,6 +45,9 @@ def main():
                         sac.MenuItem('Samsung', icon='phone-flip'),
                     ]
                 ),
+
+                sac.MenuItem('Account', icon='credit-card-2-front-fill'),
+
             ],        
         )
 
@@ -53,7 +57,8 @@ def main():
         'Apple': Apple,
         'Android': Android,
         'Finance': Finance,
-        'Samsung': Samsung
+        'Samsung': Samsung,
+        'Account': Account
     }
 
     if menu_item in menu_actions:
@@ -62,4 +67,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-    
+
