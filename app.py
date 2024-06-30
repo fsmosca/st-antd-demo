@@ -4,12 +4,17 @@ from modules.apple import Apple
 from modules.google import Android, Finance
 from modules.samsung import Samsung
 from modules.account import Account
+from modules.version import __version__
 
 
 st.set_page_config(
     page_title="Antd components in Streamlit",
     layout='centered',
-    page_icon='🤷'
+    page_icon='🤷',
+    menu_items={
+        'about': f'''**A sample streamlit App that uses Antd components.**  
+        *Version {__version__}*'''
+    }
 )
 
 
