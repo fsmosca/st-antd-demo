@@ -18,46 +18,48 @@ def Home():
     st.markdown('''A streamlit application that uses antd components.''')
 
 
-with st.sidebar:
-    menu_item = sac.menu(
-        index=0,  # refers to the Home
-        open_all=False,
-        items=[
-            sac.MenuItem('Home', icon='house-fill'),
+def main():
+    with st.sidebar:
+        menu_item = sac.menu(
+            index=0,  # refers to the Home
+            open_all=False,
+            items=[
+                sac.MenuItem('Home', icon='house-fill'),
 
-            sac.MenuItem(
-                'Products',
-                icon='box-fill',
-                children=[
-                    sac.MenuItem('Apple', icon='apple'),
+                sac.MenuItem(
+                    'Products',
+                    icon='box-fill',
+                    children=[
+                        sac.MenuItem('Apple', icon='apple'),
 
-                    sac.MenuItem(
-                        'Google',
-                        icon='google',
-                        children=[
-                            sac.MenuItem('Android', icon='android2'),
-                            sac.MenuItem('Finance', icon='bank'),
-                        ],
-                    ),
+                        sac.MenuItem(
+                            'Google',
+                            icon='google',
+                            children=[
+                                sac.MenuItem('Android', icon='android2'),
+                                sac.MenuItem('Finance', icon='bank'),
+                            ],
+                        ),
 
-                    sac.MenuItem('Samsung', icon='phone-flip'),
-                ]
-            ),
-        ],        
-    )
+                        sac.MenuItem('Samsung', icon='phone-flip'),
+                    ]
+                ),
+            ],        
+        )
 
-match menu_item:
-    case 'Home':
-        Home()
 
-    case 'Apple':
-        Apple()
+    menu_actions = {
+        'Home': Home,
+        'Apple': Apple,
+        'Android': Android,
+        'Finance': Finance,
+        'Samsung': Samsung
+    }
+
+    if menu_item in menu_actions:
+        menu_actions[menu_item]()
+
+
+if __name__ == '__main__':
+    main()
     
-    case 'Android':
-        Android()
-    
-    case 'Finance':
-        Finance()
-
-    case 'Samsung':
-        Samsung()
